@@ -14,11 +14,7 @@ const oldPointStructure = {
 
 //function 1: simpleScorer(word)
 function simpleScorer(word) {
-  let numericalScore = 0;
-  for (let i in word) {
-    numericalScore++;
-  }
-  return numericalScore;
+  return word.length;
 }
 
 //function 2: vowelBonusScorer
@@ -68,10 +64,9 @@ const scoringAlgorithms = [
 ];
 
 //function 4: scorerPrompt()
-function scorerPrompt(scoringAlgorithms) {
-  console.log("Let's play some Scrabble!");
+function scorerPrompt(word,scoringAlgorithms) {
   let regex = /[a-z]/;
-  word = input.question("enter a word to score :");
+
   while (!(regex.test(word) === true)) {
     word = input.question(
       "\n" + "Invalid word!!!,please enter the correct word : "
@@ -113,6 +108,7 @@ function transform(oldPointStructure) {
 
   return newPointStructure;
 }
+
 let newPointStructure = transform(oldPointStructure);
 newPointStructure[" "] = 0;
 
@@ -133,18 +129,18 @@ function scrabbleScorer(word) {
   return score;
 }
 
-//console.log(newPointStructure);
 
 function initialPrompt() {
-  let word = input.question("please enter a word :");
+  console.log("Let's play some Scrabble!");
+  let word = input.question("please enter a word to score :");
   let score = oldScrabbleScorer(word);
   console.log(score);
+  return word;
 }
 
 function runProgram() {
-  initialPrompt();
-  transform(oldPointStructure);
-  scorerPrompt(scoringAlgorithms);
+  let word = initialPrompt();
+  scorerPrompt(word,scoringAlgorithms);
 }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
