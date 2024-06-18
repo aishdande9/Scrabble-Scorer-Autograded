@@ -49,17 +49,17 @@ const scoringAlgorithms = [
   {
     Name: "Simple Score",
     Description: "Each letter is worth 1 point",
-    ScoreFunction: simpleScorer,
+    ScorerFunction: simpleScorer,
   },
   {
     Name: "Bonus Vowels",
     Description: "Vowels are 3 pts, consonants are 1 pt.",
-    ScoreFunction: vowelBonusScorer,
+    ScorerFunction: vowelBonusScorer,
   },
   {
     Name: "Scrabble",
     Description: "The newpoint scoring algorithm.",
-    ScoreFunction: scrabbleScorer,
+    ScorerFunction: scrabbleScorer,
   },
 ];
 
@@ -88,7 +88,7 @@ function scorerPrompt(word,scoringAlgorithms) {
   }
   console.log(`\nAlgorithm name :  ${scoringAlgorithms[chooseAlgorithm].Name}`);
   console.log(
-    `Score for '${word}' : ${scoringAlgorithms[chooseAlgorithm].ScoreFunction(
+    `Score for '${word}' : ${scoringAlgorithms[chooseAlgorithm].ScorerFunction(
       word
     )}`
   );

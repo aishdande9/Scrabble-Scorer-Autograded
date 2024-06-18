@@ -133,13 +133,13 @@ describe("Scrabble Scorer solution", function() {
 
 	it("scoringAlgorithms contain three scoring objects", function() {
 		expect(solution.scoringAlgorithms[0]).toEqual(expect.objectContaining({
-			ScoreFunction: solution.simpleScorer
+			ScorerFunction: solution.simpleScorer
 		}));
 		expect(solution.scoringAlgorithms[1]).toEqual(expect.objectContaining({
-			ScoreFunction: solution.vowelBonusScorer
+			ScorerFunction: solution.vowelBonusScorer
 		}));
 		expect(solution.scoringAlgorithms[2]).toEqual(expect.objectContaining({
-			ScoreFunction: solution.scrabbleScorer
+			ScorerFunction: solution.scrabbleScorer
 		}));
 	});
 	
