@@ -64,7 +64,7 @@ const scoringAlgorithms = [
 ];
 
 //function 4: scorerPrompt()
-function scorerPrompt(word,scoringAlgorithms) {
+function scorerPrompt(word) {
   let regex = /[a-z]/;
 
   while (!(regex.test(word) === true)) {
@@ -114,7 +114,7 @@ newPointStructure[" "] = 0;
 
 //function 6 : newscrabblescorer
 function scrabbleScorer(word) {
-  let newPoints = "" + "\n";
+  word = word.toLowerCase();
   let pointValue = 0;
   let score = 0;
 
@@ -122,25 +122,21 @@ function scrabbleScorer(word) {
     for (pointValue in newPointStructure) {
       pointValue = newPointStructure[word[i]];
     }
-    newPoints += `Points for '${word[i]}': ${pointValue}\n`;
     score = score + pointValue;
   }
 
   return score;
 }
 
-
 function initialPrompt() {
   console.log("Let's play some Scrabble!");
   let word = input.question("please enter a word to score :");
-  let score = oldScrabbleScorer(word);
-  console.log(score);
   return word;
 }
 
 function runProgram() {
   let word = initialPrompt();
-  scorerPrompt(word,scoringAlgorithms);
+  scorerPrompt(word);
 }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
